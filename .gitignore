@@ -1,1 +1,27 @@
 docs/
+
+# Gradle
+.gradle/
+.kotlin/
+build/
+
+# Local configuration
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+
+# Android build outputs and caches
+captures/
+.cxx/
+*.apk
+*.aab
+
+# Signing
+keystore.properties
+*.jks
+*.keystore
+
+# OS
+.DS_Store
