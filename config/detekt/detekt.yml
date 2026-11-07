@@ -1,0 +1,27 @@
+naming:
+  FunctionNaming:
+    active: true
+    ignoreAnnotated: ['Composable']
+  TopLevelPropertyNaming:
+    active: true
+    excludes: ['**/core/designsystem/tokens/**']
+
+complexity:
+  LongMethod:
+    active: true
+    ignoreAnnotated: ['Composable']
+    excludes: ['**/core/designsystem/tokens/**']
+  LongParameterList:
+    active: true
+    ignoreAnnotated: ['Composable']
+    excludes: ['**/core/designsystem/tokens/**']
+
+style:
+  MagicNumber:
+    active: true
+    excludes: ['**/test/**', '**/androidTest/**', '**/core/designsystem/tokens/**']
+
+coroutines:
+  InjectDispatcher:
+    active: true
+    excludes: ['**/di/**', '**/test/**', '**/androidTest/**']

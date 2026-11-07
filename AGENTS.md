@@ -15,7 +15,7 @@ Always-on rules for the coding agent. Read on every task. Task prompts say "Foll
 2. Write a short plan (files, order). Proceed unless a stop trigger from section 2 fires.
 3. Run the prompt's recon commands first. Save the output with `tee` to `docs/reports/<ID>_recon.txt`, then make the empty marker commit. It must be the oldest commit on the branch.
 4. Implement in the prompt's order: dependencies first, UI last.
-5. Run the verify command. It must pass before you report done. Verify command: `./gradlew checkAll` (created in prompt P00; before P00 exists, skip this step). 🟡 D136
+5. Run the verify command. It must pass before you report done. Verify command: `./gradlew checkAll`. 🟡 D136
 6. Write `docs/reports/<ID>_report.md` with exactly the headings the prompt gives. A report in another format is incomplete.
 7. Run long commands and tests with a timeout. Tests with endless loops (tickers, collectors) use a child scope and a timeout.
 8. The owner's login shell is fish. Run every shell command through bash (`bash -c '...'`). Do not rely on fish syntax or heredocs. 🟡 D126
@@ -42,6 +42,7 @@ Never choose silently.
 - Do not add features, settings, toggles or screens that the prompt does not list.
 - Least code. No dead code. Reuse existing code. No dummy declarations to satisfy a linter.
 - Do a cleanup pass before reporting.
+- Every file you create ends with exactly one newline, with no blank line at the end. `git diff --check main..HEAD` must print nothing. `gradlew.bat` is exempt: it uses CRLF line endings.
 - Never rename, swap or weaken tests that the prompt specifies.
 - Do not read, copy or adapt code, assets or UI text from other apps' repositories (for example PixelPlayer, whose license is proprietary). Implement from the prompt's spec only. The one exception is the owner's own repo Drift Stream, when a prompt points to it. 🟡 D119, D141
 

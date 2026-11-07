@@ -4,6 +4,9 @@ kotlin = "2.4.21"
 composeBom = "2026.09.00"
 androidxActivityCompose = "1.13.0"
 junit = "4.13.2"
+detekt = "2.0.0-alpha.6"
+spotless = "8.11.0"
+ktlint = "1.8.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivityCompose" }
@@ -14,3 +17,5 @@ junit = { module = "junit:junit", version.ref = "junit" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
