@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Melodia"
+include(":app")
