@@ -12,7 +12,7 @@ spotless {
         ktlint(libs.versions.ktlint.get())
     }
     kotlinGradle {
-        target("*.gradle.kts", "app/*.gradle.kts")
+        target("*.gradle.kts", "app/*.gradle.kts", "gradle/*.gradle.kts")
         targetExclude("**/build/**", ".gradle/**")
         ktlint(libs.versions.ktlint.get())
     }
@@ -94,9 +94,11 @@ val hexGuardTask =
         reportFile.set(layout.buildDirectory.file("reports/hexGuard/report.txt"))
     }
 
+apply(from = "gradle/guards.gradle.kts")
+
 tasks.register("checkAll") {
     group = "verification"
-    description = "Runs assembleDebug, unit tests, detekt, spotlessCheck, and hexGuard"
+    description = "Runs assembleDebug, unit tests, detekt, spotlessCheck, hexGuard, and the project guards"
     dependsOn(
         ":app:assembleDebug",
         ":app:testDebugUnitTest",
@@ -104,5 +106,9 @@ tasks.register("checkAll") {
         ":app:detektDebugUnitTest",
         "spotlessCheck",
         hexGuardTask,
+        "motionGuard",
+        "domainGuard",
+        "stringGuard",
+        "forbiddenDepGuard",
     )
 }
