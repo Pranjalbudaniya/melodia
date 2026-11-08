@@ -8,8 +8,8 @@ class BaselineTokensTest {
     @Test
     fun baselineIdsAreUnique() {
         val ids = BaselineTokens.catalog.definitions.map { it.id.value }
-        assertEquals(30, ids.size)
-        assertEquals(30, ids.distinct().size)
+        assertEquals(31, ids.size)
+        assertEquals(31, ids.distinct().size)
     }
 
     @Test

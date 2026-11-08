@@ -38,6 +38,8 @@ object TokenIds {
     val motionEffectsFast = TokenId("motion.effectsFast")
     val motionEffectsDefault = TokenId("motion.effectsDefault")
     val motionEffectsSlow = TokenId("motion.effectsSlow")
+
+    val hapticFeedback = TokenId("haptic.feedback")
 }
 
 object BaselineTokens {
@@ -97,6 +99,11 @@ object BaselineTokens {
                     TokenIds.motionEffectsSlow,
                     TokenType.MOTION,
                     TokenValue.Spring(stiffness = 800f, dampingRatio = 1.0f),
+                ),
+                TokenDefinition(
+                    TokenIds.hapticFeedback,
+                    TokenType.HAPTIC,
+                    TokenValue.Haptic(enabled = true, strength = 0.25f),
                 ),
             ),
         )
