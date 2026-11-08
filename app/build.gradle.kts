@@ -40,6 +40,7 @@ detekt {
 dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
+    implementation(libs.compose.animation.core)
     implementation(libs.androidx.activity.compose)
 
     testImplementation(libs.junit)

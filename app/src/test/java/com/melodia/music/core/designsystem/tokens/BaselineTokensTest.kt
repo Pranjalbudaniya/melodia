@@ -8,8 +8,8 @@ class BaselineTokensTest {
     @Test
     fun baselineIdsAreUnique() {
         val ids = BaselineTokens.catalog.definitions.map { it.id.value }
-        assertEquals(24, ids.size)
-        assertEquals(24, ids.distinct().size)
+        assertEquals(30, ids.size)
+        assertEquals(30, ids.distinct().size)
     }
 
     @Test
@@ -73,5 +73,33 @@ class BaselineTokensTest {
                 assertTrue("dp is negative for ${def.id.value}", baseline.dp >= 0f)
             }
         }
+    }
+
+    @Test
+    fun baselineMotionSpringsMatchExpressiveValues() {
+        assertEquals(
+            TokenValue.Spring(stiffness = 800f, dampingRatio = 0.6f),
+            BaselineTokens.catalog.find(TokenIds.motionSpatialFast)?.baseline,
+        )
+        assertEquals(
+            TokenValue.Spring(stiffness = 380f, dampingRatio = 0.8f),
+            BaselineTokens.catalog.find(TokenIds.motionSpatialDefault)?.baseline,
+        )
+        assertEquals(
+            TokenValue.Spring(stiffness = 200f, dampingRatio = 0.8f),
+            BaselineTokens.catalog.find(TokenIds.motionSpatialSlow)?.baseline,
+        )
+        assertEquals(
+            TokenValue.Spring(stiffness = 3800f, dampingRatio = 1.0f),
+            BaselineTokens.catalog.find(TokenIds.motionEffectsFast)?.baseline,
+        )
+        assertEquals(
+            TokenValue.Spring(stiffness = 1600f, dampingRatio = 1.0f),
+            BaselineTokens.catalog.find(TokenIds.motionEffectsDefault)?.baseline,
+        )
+        assertEquals(
+            TokenValue.Spring(stiffness = 800f, dampingRatio = 1.0f),
+            BaselineTokens.catalog.find(TokenIds.motionEffectsSlow)?.baseline,
+        )
     }
 }

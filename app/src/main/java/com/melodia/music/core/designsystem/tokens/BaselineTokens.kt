@@ -31,6 +31,13 @@ object TokenIds {
     val fontLyrics = TokenId("font.lyrics")
 
     val surfaceStyle = TokenId("surface.style")
+
+    val motionSpatialFast = TokenId("motion.spatialFast")
+    val motionSpatialDefault = TokenId("motion.spatialDefault")
+    val motionSpatialSlow = TokenId("motion.spatialSlow")
+    val motionEffectsFast = TokenId("motion.effectsFast")
+    val motionEffectsDefault = TokenId("motion.effectsDefault")
+    val motionEffectsSlow = TokenId("motion.effectsSlow")
 }
 
 object BaselineTokens {
@@ -61,6 +68,36 @@ object BaselineTokens {
                 TokenDefinition(TokenIds.fontBody, TokenType.FONT, TokenValue.Font("roboto-flex")),
                 TokenDefinition(TokenIds.fontLyrics, TokenType.FONT, TokenValue.Font("roboto-flex")),
                 TokenDefinition(TokenIds.surfaceStyle, TokenType.SURFACE, TokenValue.Surface(SurfaceStyle.SOLID)),
+                TokenDefinition(
+                    TokenIds.motionSpatialFast,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 800f, dampingRatio = 0.6f),
+                ),
+                TokenDefinition(
+                    TokenIds.motionSpatialDefault,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 380f, dampingRatio = 0.8f),
+                ),
+                TokenDefinition(
+                    TokenIds.motionSpatialSlow,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 200f, dampingRatio = 0.8f),
+                ),
+                TokenDefinition(
+                    TokenIds.motionEffectsFast,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 3800f, dampingRatio = 1.0f),
+                ),
+                TokenDefinition(
+                    TokenIds.motionEffectsDefault,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 1600f, dampingRatio = 1.0f),
+                ),
+                TokenDefinition(
+                    TokenIds.motionEffectsSlow,
+                    TokenType.MOTION,
+                    TokenValue.Spring(stiffness = 800f, dampingRatio = 1.0f),
+                ),
             ),
         )
 }
