@@ -43,6 +43,7 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.animation.core)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.kotlinx.coroutines.core)
 
     testImplementation(libs.junit)
 }
